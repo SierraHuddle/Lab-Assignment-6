@@ -1,9 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	// base case 
+	if(low > high){
+        return -1;
+    
+	}
+	else{
+		// find halfway
+		int mid = (low + high) / 2;
+		if (value == numbers[mid])
+		{
+			return mid;
+		}
+		else if(value > numbers[mid])
+		{
+			return search(numbers, mid + 1, high, value +1);
+		}
+		else 
+		{
+			return search(numbers, low, high, value -1);
+		}
+			
+			
+	}
+    return -1;
+			
 }
+// lab 5 step 15
 
 void printArray(int numbers[], int sz)
 {
